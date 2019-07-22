@@ -19,7 +19,7 @@ public class Lab7 {
 	while (cont) {
 	    System.out.println("Type of expression:");
 	    System.out.println(
-		    "\t1. Phone Number\n" + "\t2. Legal Name\n" + "\t3. Email Address\n" + "\t4. Date\n"
+		    "\t1. Phone Number\n" + "\t2. Legal Name\n" + "\t3. Email Address\n" + "\t4. Date\n" + "\t5. HTML\n"
 			    + "\t0. Exit");
 
 	    if (scan.hasNextInt()) {
@@ -53,6 +53,12 @@ public class Lab7 {
 		System.out.println("Please enter a date: ");
 		input = scan.nextLine();
 		validExpression = isValidDate(input);
+		break;
+	    case 5:
+		expressionType = "HTML";
+		System.out.println("Please enter HTML code: ");
+		input = scan.nextLine();
+		validExpression = isValidHTML(input);
 		break;
 	    case 0:
 		cont = false;
@@ -118,6 +124,11 @@ public class Lab7 {
 
     public static boolean isValidDate(String input) {
 	String regex = "\\d{2}\\/\\d{2}\\/\\d{4}";
+	return isValidExpression(regex, input);
+    }
+
+    public static boolean isValidHTML(String input) {
+	String regex = "<\\w>\\s<\\/\\w>";
 	return isValidExpression(regex, input);
     }
 
